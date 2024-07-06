@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Z.I.'s File Upload Website</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f0f0f0;
+		}
+		
+		h1, h2 {
+			color: #00698f;
+		}
+		
+		#file-upload-form {
+			margin: 20px;
+			padding: 20px;
+			border: 1px solid #ccc;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		
+		#uploaded-files {
+			margin-top: 20px;
+		}
+		
+		img {
+			width: 100%;
+			height: 200px;
+			object-fit: cover;
+			margin: 20px;
+			border-radius: 10px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Welcome to Z.I.'s File Upload Website</h1>
+	<h2>Upload your files here!</h2>
+	<form id="file-upload-form">
+		<input type="file" id="file-upload" multiple>
+		<button id="upload-button">Upload Files</button>
+	</form>
+	<div id="uploaded-files"></div>
+	
+	<!-- Add some beautiful pictures from online URLs -->
+	<img src="(https://shorturl.at/3uhmo)" alt="Beautiful Picture 1">
+	<img src="(link unavailable)" alt="Beautiful Picture 2">
+	<img src="(link unavailable)" alt="Beautiful Picture 3">
+	
+	<script>
+		const fileUploadForm = document.getElementById('file-upload-form');
+		const fileUploadInput = document.getElementById('file-upload');
+		const uploadButton = document.getElementById('upload-button');
+		const uploadedFilesDiv = document.getElementById('uploaded-files');
+		
+		uploadButton.addEventListener('click', (e) => {
+			e.preventDefault();
+			const files = fileUploadInput.files;
+			// Upload files to server or perform other actions here
+			uploadedFilesDiv.innerHTML = '';
+			files.forEach((file) => {
+				const fileElement = document.createElement('div');
+				fileElement.textContent = `File uploaded: ${file.name}`;
+				uploadedFilesDiv.appendChild(fileElement);
+			});
+		});
+	</script>
+</body>
+</html>
